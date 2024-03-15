@@ -10,6 +10,7 @@ Approach #1
 import random
 
 
+
 def guess_number():
     number = random.randint(1, 200)
     attemps = 1
