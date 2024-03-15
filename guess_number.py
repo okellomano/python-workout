@@ -12,17 +12,26 @@ import random
 
 def guess_number():
     number = random.randint(1, 200)
+    attemps = 1
+    
+    print('** You have three chances to guess my number **')
     
     while True:
-        user_number = int(input('I have a number between 1 and 200, guess the number: '))
-        
-        if user_number > number:
-            print(f'Your guess of {user_number} is too high.')
-        elif user_number < number:
-            print(f'Your guess of {user_number} is too low')
-        elif user_number == number:
-            print(f'Just right. The right answer is {user_number}')
+        if attemps <= 3: 
+            user_number = int(input(f'I have a number between 1 and 200, guess the number. [Attempt #{attemps}]: '))
+            
+            if user_number > number:
+                print(f'Your guess of {user_number} is too high.')
+            elif user_number < number:
+                print(f'Your guess of {user_number} is too low')
+            elif user_number == number:
+                print(f'Just right. The right answer is {user_number}')
+                break
+        else:
+            print(f'\nYou are out of attemps. Try again next time. My number was {number}')
             break
+        
+        attemps += 1
         
         
 if __name__ == '__main__':
