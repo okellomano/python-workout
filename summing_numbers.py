@@ -44,6 +44,7 @@ def list_of_words(words):
     
     return (shortest_length, longest_length, average_length)
 
+
 def sum_objects(elements, start=0):
     '''Takes a list of objects and sums objects that either are integers or can be converted to integers, while ignoring the rest. '''
     total = start
