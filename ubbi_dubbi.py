@@ -31,9 +31,27 @@ def remove_authors():
     authors = ['Dorcas', 'Kamau', 'Tom']
 
     return ' '.join(['_' if author in authors else author for author in article.split()])
+
+def url_encode_string():
+    ''' In  URLs,  we  often  replace  special  and  non printable characters with a % followed by the character’s ASCII value in hexadecimal.
+    Forexample,  if  a  URL  is  to  include  a  space  character  (ASCII  32,  aka  0x20),  we replace it with %20.
+    Given a string, URL-encode any character that isn’t a letteror  number. 
+    For  the  purposes  of  this  exercise,  we’ll  assume  that  all  charactersare indeed in ASCII '''
+    
+    string_to_encode = 'This is the string that we need to encode.'
+    
+    encoded_string = ''
+    
+    for character in string_to_encode:
+        if character.isalnum():
+            encoded_string += character
+        else:
+            encoded_string += '%' + format(ord(character), '02X')
+    return encoded_string
     
 if __name__ == '__main__':
     # print(ubbi_dubbi())
-    print(remove_authors())
+    # print(remove_authors())
+    print(url_encode_string())
             
     
