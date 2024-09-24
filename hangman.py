@@ -30,7 +30,7 @@ def hangman_game():
     flag = 0
     
     try:
-        while chances !=0 and flag == 0:
+        while chances != 0 and flag == 0:
             print()
             chances -= 1
             
