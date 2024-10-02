@@ -20,19 +20,18 @@ from collections import deque
 
 class Solution:
     def is_valid_parentheses(self, s:str) -> bool:
-        characters = ['(', ')', '{', '}', '[', ']']
-        stack = deque()
-        opening_braces = ['(', '[', '{']
+        stack = []
         
-        for char in characters:
-            if char in opening_braces:
+        for char in s:
+            if char in '([{':
                 stack.append(char) 
             else:
-                if not stack or (char == '(' and stack.peek != ')') or (char == '[' and stack.peek != ']') or (char == '{' and stack.peek != '}'):
+                if not stack or (char == ')' and stack[-1] != '(') or (char == ']' and stack[-1] != '[') or (char == '}' and stack[-1] != '{'):
                     return False
-                return True
+                stack.pop()
+        return not stack
             
 if __name__ == '__main__':
     sol = Solution()
-    s = '([}'
+    s = '()'
     print(sol.is_valid_parentheses(s))
