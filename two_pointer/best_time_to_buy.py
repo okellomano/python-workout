@@ -20,7 +20,7 @@ def maximum_profit(prices):
     right  = 1  # selling
 
     while right < len(prices):
-        if prices[left] < prices[right]:
+        if prices[left] < prices[right]:  # means there is profit
             profit = prices[right] - prices[left]
             max_profit = max(max_profit, profit)
         else:
