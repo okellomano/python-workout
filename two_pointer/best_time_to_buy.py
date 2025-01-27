@@ -13,20 +13,21 @@ Possible clarifying questions:
     ; Can I sell before I buy?
 """
 
-def max_profit(prices):
+def maximum_profit(prices):
     """Return the maximum profit. """
-    profit = 0
-    buying = 0
-    selling = buying + 1
+    max_profit = 0
+    left = 0  # buying
+    right  = 1  # selling
 
-    while buying < len(prices):
-        sell = prices[selling] - prices[buying]
-
-        if sell > profit:
-            profit = sell
-        selling += buying
-    buying += 1
-    return profit
+    while right < len(prices):
+        if prices[left] < prices[right]:
+            profit = prices[right] - prices[left]
+            max_profit = max(max_profit, profit)
+        else:
+            left = right
+        right += 1
+    return max_profit
 
 prices = [9,1,5,3,7,5]
-print(f'The maximum price returned is: {max_profit(prices)}')
+print(f'The maximum price returned is: {maximum_profit(prices)}')
+
